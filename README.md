@@ -1,34 +1,46 @@
-# Repro::Client
+# repro-client
 
-Repro Push API Client  
-http://docs.repro.io/en/dev/push-api/index.html
+Repro API Client
 
-## Installation
+## Install
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'repro-client'
+```
+$ gem install repro-client
 ```
 
-And then execute:
+or add to your Gemfile
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install repro-client
+```ruby
+gem 'repro-client', github: 'itkrt2y/repro-client'
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+### [Send push notification](http://docs.repro.io/en/dev/push-api/index.html)
 
-## Development
+```ruby
+client = Repro::Client.new('repro_api_token')
+user_ids = [1, 2, 3]
+payload = { message: 'Hello Repro!' }
+client.push('push_id', user_ids, payload)
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+#### [Payload format](http://docs.repro.io/en/dev/push-api/index.html#id7)
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+1. [Standard format](http://docs.repro.io/en/dev/push-api/index.html#id8)
 
-## Contributing
+```ruby
+{
+  message: 'Hello Repro!',
+  deeplink_url: 'url',
+  sound: 'sound'
+}
+```
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/repro-client.
+2. [Custom](http://docs.repro.io/en/dev/push-api/index.html#json)
+
+You need to set the content as Hash
+
+### [Update user profile](http://docs.repro.io/en/dev/user-profile-api/index.html)
+
+TODO
