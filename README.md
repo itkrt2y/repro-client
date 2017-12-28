@@ -53,3 +53,7 @@ client.update_user_profiles(user_id, payload)
 #### Payload format
 
 [See Repro Official Document](http://docs.repro.io/en/dev/user-profile-api/index.html#user-profiles-payload)
+
+## Supported Ruby Versions
+
+Ruby 2.3.0 or higher
