@@ -2,12 +2,14 @@
 
 require "repro/connection"
 require "repro/client/push"
+require "repro/client/user_profile"
 require "repro/response/rate_limit"
 
 module Repro
   class Client
     include Repro::Connection
     include Repro::Client::Push
+    include Repro::Client::UserProfile
 
     attr_accessor :token
 

@@ -43,4 +43,13 @@ You need to set the content as Hash
 
 ### [Update user profile](http://docs.repro.io/en/dev/user-profile-api/index.html)
 
-TODO
+```ruby
+client = Repro::Client.new('repro_api_token')
+user_id = 'user-123'
+payload = [{ key: 'Job', type: 'string', value: 'Developer' }]
+client.update_user_profiles(user_id, payload)
+```
+
+#### Payload format
+
+[See Repro Official Document](http://docs.repro.io/en/dev/user-profile-api/index.html#user-profiles-payload)
