@@ -58,4 +58,4 @@ client.update_user_profiles(user_id, payload)
 
 ## Supported Ruby Versions
 
-Ruby 2.3.0 or higher
+Ruby 2.4.0 or higher
