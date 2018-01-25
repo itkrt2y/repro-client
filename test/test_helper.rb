@@ -47,7 +47,7 @@ module StubConnection
   private
 
     def client_stub(client, path, status, body, &block)
-      connection = Faraday.new do|f|
+      connection = Faraday.new do |f|
         f.adapter :test, Faraday::Adapter::Test::Stubs.new do |stub|
           stub.post(path) { |_| [status, {}, JSON.generate(body)] }
         end
