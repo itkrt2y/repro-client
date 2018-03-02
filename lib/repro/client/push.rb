@@ -24,12 +24,9 @@ module Repro
 
       private
 
-        def notification(message: nil, deeplink_url: nil, sound: nil, custom_payload: nil)
-          if custom_payload
-            { custom_payload: custom_payload }
-          else
-            { message: message, deeplink_url: deeplink_url, sound: sound }.compact
-          end
+        def notification(options)
+          custom_payload = options.delete(:custom_payload)
+          custom_payload ? { custom_payload: custom_payload } : options
         end
     end
   end
