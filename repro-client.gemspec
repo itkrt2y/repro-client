@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["itkrt2y.591721200@gmail.com"]
   spec.summary       = "Repro API Client"
   spec.homepage      = "https://github.com/itkrt2y/repro-client"
+  spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
