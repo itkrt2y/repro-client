@@ -4,7 +4,7 @@ module Repro
   class Client
     module Push
       def push(push_id, user_ids, options={})
-        post(push_endpoint , push_path(push_id), push_payload(user_ids, options))
+        post(push_endpoint, push_path(push_id), push_payload(user_ids, options))
       end
 
       def push_endpoint
@@ -15,19 +15,14 @@ module Repro
         "/v1/push/#{push_id}/deliver"
       end
 
-      def push_payload(user_ids, options={})
+      def push_payload(user_ids, notification)
+        custom_payload = notification.delete(:custom_payload)
+
         {
           audience: { user_ids: user_ids },
-          notification: notification(options)
+          notification: custom_payload ? { custom_payload: custom_payload } : notification
         }
       end
-
-      private
-
-        def notification(options)
-          custom_payload = options.delete(:custom_payload)
-          custom_payload ? { custom_payload: custom_payload } : options
-        end
     end
   end
 end
