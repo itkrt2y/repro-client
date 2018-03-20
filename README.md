@@ -13,7 +13,7 @@ $ gem install repro-client
 or add to your Gemfile
 
 ```ruby
-gem 'repro-client', github: 'itkrt2y/repro-client'
+gem 'repro-client'
 ```
 
 ## Usage
@@ -21,6 +21,7 @@ gem 'repro-client', github: 'itkrt2y/repro-client'
 ### [Send push notification](http://docs.repro.io/en/dev/push-api/index.html)
 
 ```ruby
+require 'repro/client'
 client = Repro::Client.new('repro_api_token')
 user_ids = [1, 2, 3]
 payload = { message: 'Hello Repro!' }
@@ -46,6 +47,7 @@ You need to set the content as Hash
 ### [Update user profile](http://docs.repro.io/en/dev/user-profile-api/index.html)
 
 ```ruby
+require 'repro/client'
 client = Repro::Client.new('repro_api_token')
 user_id = 'user-123'
 payload = [{ key: 'Job', type: 'string', value: 'Developer' }]
